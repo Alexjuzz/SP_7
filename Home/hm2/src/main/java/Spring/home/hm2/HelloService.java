@@ -14,8 +14,10 @@ public class HelloService {
         String font = getFonts();
         String size = getPX();
         String color = getColors();
-        return String.format("<div style='text-align: center; font-family: %s; font-size: %s; color: %s;'>%s</div>", font, size, color, str);
+        return String.format("<div style='text-align: center; font-family: %s; font-size: %s; color: %s;'>%s</div>", font, size, color, "Привет, " +  str);
     }
+
+
 
     private String getFonts(){
         return listFonts[r.nextInt(listFonts.length)];
