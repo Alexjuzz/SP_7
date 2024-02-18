@@ -1,5 +1,6 @@
 package Spring.Hm7.aspects;
 
+import Spring.Hm7.logservice.JsonLogWriter;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -32,6 +33,8 @@ public class ArgumentLogAspect {
 
         String username = authentication != null ? authentication.getName() : "anonymous";
         String methodName = joinPoint.getSignature().getName();
+        JsonLogWriter jsonLogWriter = new JsonLogWriter();
+        jsonLogWriter.log(username,joinPoint.getSignature().getName(), String.valueOf(joinPoint.getArgs()[0]),"");
         log.info("Method name {} Argumetns name: {} Имя вызвавшего пользователя: {} ", methodName
                 , Arrays.toString(joinPoint.getArgs()), username);
 
@@ -40,6 +43,8 @@ public class ArgumentLogAspect {
     @AfterReturning(value = "apiPointcut()", returning = "result")
     public void afterCallMethodArgs(JoinPoint joinPoint, Object result) {
         String username = authentication != null ? authentication.getName() : "anonymous";
+        JsonLogWriter jsonLogWriter = new JsonLogWriter();
+        jsonLogWriter.log(username,joinPoint.getSignature().getName(), String.valueOf( joinPoint.getArgs()[0]),String.valueOf(result));
         log.info("Return args: {} Имя вызвавшего пользователя: {} ", result, username);
     }
 
