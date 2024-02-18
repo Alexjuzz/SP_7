@@ -36,7 +36,7 @@ public class Home7Application {
 
 	public static void main(String[] args) {
 	SpringApplication.run(Home7Application.class);
-		//		UserRepository  userRepository = SpringApplication.run(Home6Application.class,args).getBean(UserRepository.class);
+//		UserRepository  userRepository = SpringApplication.run(Home6Application.class,args).getBean(UserRepository.class);
 //		User Alex = new User();
 //		Alex.setEmail("jujax@mail.ru");
 //		Alex.setName("Alex");
