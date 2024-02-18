@@ -16,7 +16,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/api/task").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/task/{id}**").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/task/{id}**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/api/user/{1}**").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/user/{id}**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/user/**").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/user/{id}**").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/user/{id}**").hasAuthority("ADMIN")
