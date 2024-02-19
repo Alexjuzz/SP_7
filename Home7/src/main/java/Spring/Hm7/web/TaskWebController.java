@@ -73,8 +73,9 @@ public class TaskWebController {
         return String.format("%d Была удалена", id);
     }
 
-    @PostMapping("/getTaskById")
-    public String getTaskById(@PathVariable Long id, Model model){
+    @PostMapping ("/getTaskById")
+    public String getTaskById(@RequestParam("id") Long id, Model model){
+        System.out.println(id);
         model.addAttribute("tasks",service.getTaskById(id));
         return "GetTaskById";
     }

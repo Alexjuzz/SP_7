@@ -32,8 +32,8 @@ public class UserWebController {
         model.addAttribute("users",service.getAllUsers());
         return "GetAllUsers";
     }
-    @GetMapping("/getUserById")
-    public String getUserById(Model model,@PathVariable Long id){
+    @PostMapping("/getUserById")
+    public String getUserById(Model model,@RequestParam Long id){
         model.addAttribute("user",service.getUserById(id));
         return "GetUserById";
     }

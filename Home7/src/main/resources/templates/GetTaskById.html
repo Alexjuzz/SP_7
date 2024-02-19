@@ -5,13 +5,28 @@
     <title>Задача</title>
     <style>
         .link-container {
-            display: centre;
+            display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
 
         .link-container a {
             margin-right: 33px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Выравнивание текста по центру для всех ячеек */
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -22,23 +37,22 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Discription</th>
+        <th>Description</th>
         <th>Status</th>
         <th>Date</th>
         <th>Users</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="task : ${tasks}">
-        <td th:text="${task.id}">ID</td>
-        <td th:text="${task.name}">Name</td>
-        <td th:text="${task.description}">Discription</td>
-        <td th:text="${task.status}">Status</td>
-        <td th:text="${task.date}">Date</td>
-        <td th:text="${task.userList}">Users</td>
+    <tr>
+        <td th:text="${tasks.id}">ID</td>
+        <td th:text="${tasks.name}">Name</td>
+        <td th:text="${tasks.description}">Description</td>
+        <td th:text="${tasks.status}">Status</td>
+        <td th:text="${tasks.date}">Date</td>
+        <td th:text="${tasks.userList}">Users</td>
     </tr>
     </tbody>
-
 </table>
 
 </body>

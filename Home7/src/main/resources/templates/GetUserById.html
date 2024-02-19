@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Пользователь</title>
+    <title>Задача</title>
     <style>
         .link-container {
-            display: centre;
+            display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
@@ -13,26 +12,41 @@
         .link-container a {
             margin-right: 33px;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Выравнивание текста по центру для всех ячеек */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
-<h1>Пользователь:</h1>
+<h1>Задача:</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
+
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${user}">
+    <tr>
         <td th:text="${user.id}">ID</td>
         <td th:text="${user.name}">Name</td>
         <td th:text="${user.email}">Email</td>
     </tr>
     </tbody>
-
 </table>
 
 </body>
