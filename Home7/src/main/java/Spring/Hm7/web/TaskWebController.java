@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @Controller
-
+@RequestMapping("/task")
 public class TaskWebController {
 
     private final TaskWebService service;
@@ -19,6 +19,7 @@ public class TaskWebController {
     public TaskWebController(TaskWebService taskWebService) {
         this.service = taskWebService;
     }
+
 
     @GetMapping("/create")
     public String createTaskForm(Model model) {
@@ -70,5 +71,11 @@ public class TaskWebController {
     public String delTask(@RequestParam Long id) {
         service.deleteTask(id);
         return String.format("%d Была удалена", id);
+    }
+
+    @PostMapping("/getTaskById")
+    public String getTaskById(@PathVariable Long id, Model model){
+        model.addAttribute("tasks",service.getTaskById(id));
+        return "GetTaskById";
     }
 }

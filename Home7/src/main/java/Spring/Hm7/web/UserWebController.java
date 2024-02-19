@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/user")
 public class UserWebController {
     @Autowired
     private final UserWebService service;
@@ -16,7 +17,7 @@ public class UserWebController {
     }
 
     @GetMapping("/createUser")
-    public String createTaskForm(Model model) {
+    public String createUserForm(Model model) {
         model.addAttribute("user", new User());
         return "GetCreateUser";
     }
@@ -25,6 +26,16 @@ public class UserWebController {
        User currUser = service.createUser(user.getName(), user.getEmail());
         model.addAttribute("user", currUser);
         return "PostCreateUser";
+    }
+    @GetMapping("/getAllUsers")
+    public String getAllUsers(Model model){
+        model.addAttribute("users",service.getAllUsers());
+        return "GetAllUsers";
+    }
+    @GetMapping("/getUserById")
+    public String getUserById(Model model,@PathVariable Long id){
+        model.addAttribute("user",service.getUserById(id));
+        return "GetUserById";
     }
 
 }

@@ -8,16 +8,15 @@
 <h1>Добро пожаловать мил человек.</h1>
 <tr>
 
-    <p><a href="/create">Добавить новую задачу.</a></p>
-    <p><a href="/createUser">Добавить пользователя</a></p>
-    <p><a href="/allTasks">Просмотреть все задачи.</a></p>
-    <p><a href="/getAllUsers">Просмотреть всех пользователей.</a></p>
-    <p><a href="/create">Просмотреть посмотреть задачу.</a></p>
-    <form action="/" method="post">
-        <p>Введите ID задачи для редактирования <input type="text" name="id" th:value="*{id}"/>  <input type="submit" value="Выбрать"/></p>
+    <p><a href="task/create">Добавить новую задачу.</a></p>
+    <p><a href="user/createUser">Добавить пользователя</a></p>
+    <p><a href="task/allTasks">Просмотреть все задачи.</a></p>
+    <p><a href="user/getAllUsers">Просмотреть всех пользователей.</a></p>
+    <form action="/task/getTaskById"  method="post">
+        <p>Введите ID задачи для просмотра: <input type="text" name="id" /> <input type="submit" value="Выбрать"/></p>
     </form>
-    <form action="/editTask" method="post">
-        <p>Введите ID задачи для редактирования <input type="text" name="id" th:value="*{id}"/>  <input type="submit" value="Выбрать"/></p>
+    <form action="user/getUserById" method="post">
+        <p>Введите ID задачи для редактирования <input type="text" name="id"/>  <input type="submit" value="Выбрать"/></p>
     </form>
 
 </tr>
